@@ -87,20 +87,13 @@ AddEventHandler("playerSpawned", function()
 	Citizen.CreateThread(function()
 		while true do
             Wait(1)
-            local jucatori = 0
             pPed = GetPlayerPed(-1)
             hp = GetEntityHealth(pPed)
-    
-            for i = 0, 31 do
-                if NetworkIsPlayerActive(i) then
-                    jucatori = jucatori+1
-                end
-            end
-			year, month, dayOfWeek, hour, minute = GetLocalTime()
+    			year, month, dayOfWeek, hour, minute = GetLocalTime()
 			timeAndDateString = "~w~["
 			CalculateTimeToDisplay()
 			if displayTime == true then
-				timeAndDateString = timeAndDateString .. "~s~ONLINE ".. jucatori .."/32~w~]"
+				timeAndDateString = timeAndDateString .. "~s~ONLINE ".. #GetActivePlayers .."/32~w~]"
 			end
 			if displayDate == true then
 				CalculateDateToDisplay()
