@@ -97,7 +97,7 @@ AddEventHandler("playerSpawned", function()
 			timeAndDateString = "~w~["
 			CalculateTimeToDisplay()
 			if displayTime == true then
-				timeAndDateString = timeAndDateString .. "~s~ONLINE ".. GetActivePlayers .."/".. Server_Slots .."~w~]"
+				timeAndDateString = timeAndDateString .. "~s~ONLINE ".. GetActivePlayers .."/".. ServerSlots .."~w~]"
 			end
 			if displayDate == true then
 				CalculateDateToDisplay()
