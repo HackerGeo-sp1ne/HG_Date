@@ -12,6 +12,9 @@
 --------------------------------------------------------------------------------------------------------------------
 
 
+local ServerSlots = 32
+local Hours = 0 -- time
+
 local displayTime = true
 local displayDate = true
 
@@ -90,10 +93,11 @@ AddEventHandler("playerSpawned", function()
             pPed = GetPlayerPed(-1)
             hp = GetEntityHealth(pPed)
     			year, month, dayOfWeek, hour, minute = GetLocalTime()
+			hour = hour + Hours
 			timeAndDateString = "~w~["
 			CalculateTimeToDisplay()
 			if displayTime == true then
-				timeAndDateString = timeAndDateString .. "~s~ONLINE ".. #GetActivePlayers .."/32~w~]"
+				timeAndDateString = timeAndDateString .. "~s~ONLINE ".. GetActivePlayers .."/".. Server_Slots .."~w~]"
 			end
 			if displayDate == true then
 				CalculateDateToDisplay()
